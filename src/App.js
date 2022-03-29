@@ -1,41 +1,27 @@
 import React from "react"
 import Joke from "./Joke"
+import jokesData from "./jokesData"
 
 export default function App() {
+    const jokeElements = jokesData.map(joke => {
+        return /*return not needed*/ <Joke setup={joke.setup} punchline={joke.punchline} />
+    })
     return (
         <div>
-            <Joke 
-                setup="1. I bought a thesaurus today and when I got it home I found out all the pages were blank."
-                punchline="I have no words to describe how annoyed I am."
-                upvotes={2}
-                downvotes={3}
-                comments={["lame, great"]}
-                isPun={false}
-            />
-            <Joke 
-                setup="2. I went to a really emotional wedding the other day."
-                punchline="Even the cake was in tiers."
-                upvotes={4}
-                downvotes={5}
-                comments={["lame, great"]}
-                isPun={true}
-            />
-            <Joke 
-                setup="3. Did you hear about the ATM that got addicted to money?"
-                punchline="It suffered from withdrawals."
-                upvotes={2}
-                downvotes={1}
-                comments={["lame, great"]}
-                isPun={true}
-            />
-            <Joke 
-                punchline="4. Never trust atoms, they make up everything."
-                upvotes={12}
-                downvotes={3}
-                comments={["lame, great"]}
-                isPun={true}
-            />
+            {jokeElements}
         </div>
-
     )
 }
+
+/*
+Map Quiz:
+
+1. What does the '.map()' array method do? 
+A: Returns a new modified array (according to the function) from an existing array. Values are placed in the same index.  
+
+2. What do we usually use '.map()' for in React? 
+A: Convert an array of raw data into JSX elements that can be presented on the page. 
+
+3. Why is using '.map()' better than just creating the components manually by typing them out? 
+A: Means the code does not need to change when the raw data changes. 
+*/
